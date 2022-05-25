@@ -26,7 +26,7 @@ def decoder(image):
         print(string)
 
 
-def video():
+def cam_scan():
     #initialise web cam
     cap = cv2.VideoCapture(0)
     while True:
@@ -40,7 +40,7 @@ def video():
             break
 
 
-def img():
+def img_scan():
     code_img = cv2.imread("qr.png")
     decoder(code_img)
     cv2.imshow("image", code_img) 
