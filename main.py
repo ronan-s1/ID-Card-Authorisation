@@ -1,9 +1,9 @@
 from scanning import helpers as s
-from user import helpers as u
+from users import helpers as u
 
 def main():
    # s.cam_scan()
-   u.add_user()
+   u.create_user()
 
 if __name__ == "__main__":
     main()
