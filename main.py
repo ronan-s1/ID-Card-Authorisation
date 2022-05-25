@@ -1,10 +1,7 @@
 import datetime
-
-from matplotlib import use
 from scanning import helpers as s
 from users import helpers as u
 import os
-
 
 def clear_screen():
    os.system("cls"if os.name in ("nt", "dos") else "clear")
@@ -12,7 +9,7 @@ def clear_screen():
 
 def menu():
    #gets the date and time and displays it to user
-   width = 44
+   width = 55
    now = datetime.datetime.now()
    today = datetime.datetime.today()
    opts = [line.split("\n")[0] for line in open("menu.txt", "r").readlines()]
@@ -20,11 +17,11 @@ def menu():
    print("─" * width)
    print(f"{today:%d %B %Y} - {now.strftime('%H:%M')}".center(width))
    print("─" * width)
-   print("Company ID Card Authentication".center(width))
+   print("ID Card Authentication".center(width))
    print("─" * width)
    
    for i, opt in enumerate(opts):
-      print(f"{str(i):>8s}. {opt}")
+      print(f"{str(i):>7s}) {opt}")
    
    print("─" * width)
     

@@ -1,4 +1,4 @@
 Quit
-Scan ID card with web camera
+Scan ID card with web camera (q to exit)
 Create new ID card
 Check ID card validity using ID
