@@ -88,7 +88,7 @@ def create_user():
     
     #adding info to csv
     row = [user_id, name, gender]
-    with open(c.USERS_PATH, "a", newline="") as f:
+    with open(c.VALID_USERS_PATH, "a", newline="") as f:
         writer = csv.writer(f)
         writer.writerow(row)
     

@@ -1,14 +1,18 @@
 import datetime
+
+from matplotlib import use
 from scanning import helpers as s
 from users import helpers as u
 import os
 
-def ClearConsole():
+
+def clear_screen():
    os.system("cls"if os.name in ("nt", "dos") else "clear")
+
 
 def menu():
    #gets the date and time and displays it to user
-   width = 45
+   width = 44
    now = datetime.datetime.now()
    today = datetime.datetime.today()
    opts = [line.split("\n")[0] for line in open("menu.txt", "r").readlines()]
@@ -20,19 +24,34 @@ def menu():
    print("─" * width)
    
    for i, opt in enumerate(opts):
-      print(f"{str(i + 1):>8s} {opt}")
+      print(f"{str(i):>8s}. {opt}")
    
    print("─" * width)
     
-    
 
-
-def main():
-   # s.img_scan()
-   # u.create_user()
-   menu()
-   # u.create_user()
+def main():  
+   while True:
+      clear_screen()
+      menu()
+      user_choice = input("\nChoose an option: ")
+      
+      if user_choice == "0":
+         break
+      
+      elif user_choice == "1":
+         s.cam_scan()
+         
+      elif user_choice == "2":
+         u.create_user()
+         
+      elif user_choice == "3":
+         s.img_scan()
+      
+      else:
+         print("\nInvalid Input Try again")
+      
+      input("\nPress enter to continue...")
 
 
 if __name__ == "__main__":
-    main()
+   main()

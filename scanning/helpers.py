@@ -8,7 +8,7 @@ def decoder(image):
     gray_img = cv2.cvtColor(image,0)
     barcode = decode(gray_img)
     
-    data = pd.read_csv(c.USERS_PATH)
+    data = pd.read_csv(c.VALID_USERS_PATH)
     user_ids = data["id"].tolist()
     
     for obj in barcode:
@@ -40,7 +40,7 @@ def decoder(image):
 
 def cam_scan():
     #initialise web cam
-    cap = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
     while True:
         #getting frames from web cam
         ret, frame = cap.read()
@@ -49,6 +49,7 @@ def cam_scan():
         cv2.imshow("frame", frame)
         
         if cv2.waitKey(1) == ord("q"):
+            cv2.destroyAllWindows()
             break
 
 
