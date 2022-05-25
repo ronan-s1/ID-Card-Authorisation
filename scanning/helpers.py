@@ -53,10 +53,9 @@ def cam_scan():
 
 
 def img_scan():
-    code_img = cv2.imread(f"{c.CODE_PATH}o-e17060.png")
-    code_img_resize = cv2.resize(code_img, (827, 1170))
+    code_img = cv2.imread(f"{c.CODE_PATH}Ronan-b05938.png")
+    code_img_resize = cv2.resize(code_img, (595, 842))
     
     decoder(code_img_resize)
     cv2.imshow("image", code_img_resize) 
     cv2.waitKey(0)
-
