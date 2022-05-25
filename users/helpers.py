@@ -14,7 +14,7 @@ def create_qr_code(name, gender, user_id):
     qr = qrcode.QRCode(version = 1, box_size = 90)
     qr_code_path = c.CODE_PATH + f"{name}-{user_id}"
     
-    qr.add_data(f"name: {name}\nID: {user_id}\ngender: {gender}\n")
+    qr.add_data(f"{user_id},{name},{gender}")
     qr.make(fit = True)
 
     img = qr.make_image(fill = "black" , back_color = "white")
@@ -88,7 +88,7 @@ def create_user():
     
     #adding info to csv
     row = [user_id, name, gender]
-    with open(c.USERS, "a", newline="") as f:
+    with open(c.USERS_PATH, "a", newline="") as f:
         writer = csv.writer(f)
         writer.writerow(row)
     
