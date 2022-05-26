@@ -1,6 +1,6 @@
-# User-Barcode-Authentication
+# ID Card Authorisation
 
-This is an ID card authentication program, you can:
+This is an ID card authorisation program, you can:
 
 - Scan an ID card (or any bard code) with your web cam
 - Open and scan an ID card inside the program
