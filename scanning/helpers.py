@@ -17,6 +17,7 @@ def decoder(image):
     for obj in barcode:
         points = obj.polygon
         
+        #shape of barcode and that
         x, y, w, h = obj.rect
         
         pts = np.array(points, np.int32)
@@ -37,7 +38,7 @@ def decoder(image):
             string = "Invalid"
             colour = c.RED
 
-        #displaying data
+        #displaying data, outlining image
         cv2.polylines(image, [pts], True, colour, 3)
         cv2.putText(image, string, (x, y -10), cv2.FONT_HERSHEY_SIMPLEX, 0.8, colour, 2)
         
@@ -53,7 +54,7 @@ def cam_scan():
         ret, frame = cap.read()
         decoder(frame)
         
-        cv2.imshow("frame", frame)
+        cv2.imshow("AUTHORISATION SCAN *beep boop*", frame)
         
         if cv2.waitKey(1) == ord("q"):
             cv2.destroyAllWindows()
