@@ -46,8 +46,8 @@ def creating_user_card(name, gender, qr_ID_CARDS_PATH):
     
     #adding qr code and user's face to pdf
     pdf.cell(200, 30, txt = user_str, align = "C")
-    pdf.image(f"{c.ID_CARDS_PATH}face.png", x=76, y=55, w=70)
-    pdf.image(f"{qr_ID_CARDS_PATH}.png", x=76, y=130, w=70)
+    pdf.image(f"{c.ID_CARDS_PATH}face.png", x=c.X, y=55, w=c.W)
+    pdf.image(f"{qr_ID_CARDS_PATH}.png", x=c.X, y=130, w=c.W)
     pdf.output(f"{qr_ID_CARDS_PATH}.pdf")
     
     #converting pdf to png
@@ -100,8 +100,12 @@ def create_user():
 #deleting user
 def delete_user():
     #getting IDs in a list and error checking
-    print("ID cards you can delete:")
+    print("\nID cards you can delete:")
     user_input, id_cards = s.choose_id()
+    
+    if user_input == 0:
+        print("There are no ID cards!")
+        return
     
     #getting ID to delete and name from the file name
     delete_id = id_cards[user_input - 1].split("-")[1][:6]

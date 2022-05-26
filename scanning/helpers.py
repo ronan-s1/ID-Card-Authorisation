@@ -3,7 +3,7 @@ import glob
 import numpy as np
 import pandas as pd
 from pyzbar.pyzbar import decode
-from users import constants as c
+from scanning import constants as c
 
 #decoding barcodes
 def decoder(image):
@@ -31,10 +31,11 @@ def decoder(image):
         #if valid or not
         if id_from_code in user_ids:
             string = "Valid"
-            colour = (0, 255, 0)
+            colour = c.GREEN
+            
         else:
             string = "Invalid"
-            colour = (0, 0, 255)
+            colour = c.RED
 
         #displaying data
         cv2.polylines(image, [pts], True, colour, 3)
@@ -63,9 +64,13 @@ def cam_scan():
 def img_scan():
     user_input, id_cards = choose_id()
     
+    if user_input == 0:
+        print("There are no ID cards!")
+        return
+    
     #opening chosen ID card
     code_img = cv2.imread(f"{c.ID_CARDS_PATH}{id_cards[user_input - 1]}")
-    code_img_resize = cv2.resize(code_img, (595, 842))
+    code_img_resize = cv2.resize(code_img, (c.W, c.H))
     print("")
     
     #decoding chosen qr code
@@ -80,6 +85,9 @@ def choose_id():
     #put file names in a list
     id_cards = [id.split("\\")[1] for id in glob.glob(f"{c.ID_CARDS_PATH}*")]
     print("")
+    
+    if len(id_cards) == 0:
+        return 0, 0
     
     #iterating and printing the names of the files
     for i, id_card in enumerate(id_cards):
