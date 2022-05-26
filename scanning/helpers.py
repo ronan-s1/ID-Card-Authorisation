@@ -61,8 +61,24 @@ def cam_scan():
 
 #scanning a particular ID
 def img_scan():
-    #getting ids into a list
-    id_cards = [id.split("\\")[1] for id in glob.glob(f"{c.CODE_PATH}*")]
+    user_input, id_cards = choose_id()
+    
+    #opening chosen ID card
+    code_img = cv2.imread(f"{c.ID_CARDS_PATH}{id_cards[user_input - 1]}")
+    code_img_resize = cv2.resize(code_img, (595, 842))
+    print("")
+    
+    #decoding chosen qr code
+    decoder(code_img_resize)
+    cv2.imshow(f"ID card: {id_cards[user_input - 1][:-4]}", code_img_resize)
+    print("\nPlease close the ID card window to continue")
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+    
+
+def choose_id():
+    #put file names in a list
+    id_cards = [id.split("\\")[1] for id in glob.glob(f"{c.ID_CARDS_PATH}*")]
     print("")
     
     #iterating and printing the names of the files
@@ -78,19 +94,10 @@ def img_scan():
         try:
             int(user_input)
             if int(user_input) <= len(id_cards) and int(user_input) > 0:
-                break
+                return int(user_input), id_cards
             
         except ValueError:
             pass
         
         print("\nInvalid input! Try again")
         
-    #opening chosen ID card
-    code_img = cv2.imread(f"{c.CODE_PATH}{id_cards[int(user_input) - 1]}")
-    code_img_resize = cv2.resize(code_img, (595, 842))
-    print("")
-    
-    #decoding chosen qr code
-    decoder(code_img_resize)
-    cv2.imshow("image", code_img_resize) 
-    cv2.waitKey(0)

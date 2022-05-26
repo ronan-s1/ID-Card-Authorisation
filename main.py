@@ -43,6 +43,9 @@ def main():
          
       elif user_choice == "3":
          s.img_scan()
+         
+      elif user_choice == "4":
+         u.delete_user()
       
       else:
          print("\nInvalid Input Try again")
@@ -52,3 +55,4 @@ def main():
 
 if __name__ == "__main__":
    main()
+

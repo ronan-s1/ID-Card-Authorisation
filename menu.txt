@@ -1,4 +1,5 @@
 Quit
 Scan ID card with web camera (q to exit)
-Create new ID card
-Check ID card validity using ID
+Create new valid ID card
+Scan ID card using ID
+Delete ID card
