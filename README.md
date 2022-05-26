@@ -4,7 +4,7 @@ This is an ID card authentication program, you can:
 
 - Scan an ID card (or any bard code) with your web cam
 - Open and scan an ID card inside the program
-- Create a new valid ID card with their name, QR code and face ((https://github.com/hankhank10/fakeface))
+- Create a new valid ID card with their name, QR code and face (https://github.com/hankhank10/fakeface)
 - Delete an ID card
 
 ## Examples of the program running
