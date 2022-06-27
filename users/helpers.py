@@ -33,7 +33,7 @@ def creating_user_card(name, gender, qr_ID_CARDS_PATH):
     pdf.set_font("Helvetica", size = 28)
     pdf.set_text_color(0, 60, 200)   
     
-    #Possessive gramar checking
+    #Possessive grammar checking
     if name[-1].lower() == "s":
         user_str = f"{name}' ID card"
     else:
