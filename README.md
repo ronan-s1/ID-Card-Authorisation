@@ -10,8 +10,6 @@ This is an ID card authorisation program, you can:
 ## Examples of the program running
 ![image](https://user-images.githubusercontent.com/85257187/170508506-a106d221-ffa0-49c0-a9ca-620816d0e768.png)
 ![image](https://user-images.githubusercontent.com/85257187/170508692-2bf14e15-e66b-4d93-b05b-61c7c65a5e0f.png)
-
-![image](https://user-images.githubusercontent.com/85257187/170508729-22e33d8f-2690-471e-aae8-a328ccd117cc.png)
 ![image](https://user-images.githubusercontent.com/85257187/170508744-cff32412-42e5-47f6-b23f-16bbd2c69dc5.png)
 
 ## Set up
